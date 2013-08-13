@@ -1,0 +1,9 @@
+[submodule "drive-web"]
+	path = drive-web
+	url = https://github.com/goodow/drive-web.git
+[submodule "drive-server"]
+	path = drive-server
+	url = https://github.com/goodow/drive-server.git
+[submodule "drive-android"]
+	path = drive-android
+	url = https://github.com/goodow/drive-android.git
