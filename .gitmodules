@@ -7,3 +7,6 @@
 [submodule "drive-android"]
 	path = drive-android
 	url = https://github.com/goodow/drive-android.git
+[submodule "GDDrive"]
+	path = GDDrive
+	url = https://github.com/goodow/GDDrive.git
