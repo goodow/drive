@@ -21,7 +21,7 @@ path: sample.jpg
 ...
 
 --- # 调节音量 address: sid.audio
-audio: 静音  增大 减小
+audio:[静音, 增大, 减小]
 ...
 
 
