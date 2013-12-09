@@ -8,6 +8,24 @@ path: sample.mp4
 url: http://goodow.com/sample.mp4
 ...
 
+--- # 播放mp3 address: sid.mp3
+path: sample.mp3
+...
+
+--- # 播放flash address: sid.swf
+path: sample.swf
+...
+
+--- # 查看图片 address: sid.jpg
+path: sample.jpg
+...
+
+--- # 调节音量 address: sid.audio
+audio: 静音  增大 减小
+...
+
+
+
 --- # 请求一个课程下的所有文件 address: sid.getFiles
 grade: 小班
 term: 上学期
