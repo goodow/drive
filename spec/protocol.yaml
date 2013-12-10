@@ -20,8 +20,9 @@ path: sample.jpg
 
 --- # 调节音量 address: sid.drive.settings.audio
 mute: true
-increase: 10
-decrease: 10
+increase: 1~15
+decrease: 1~15
+volume: 0.0~1.0
 
 
 
