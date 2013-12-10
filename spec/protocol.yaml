@@ -18,6 +18,11 @@ path: sample.swf
 path: sample.jpg
 ...
 
+--- # 调节音量 address: sid.drive.settings.audio
+mute: true
+increase: 10
+decrease: 10
+
 
 
 --- # 请求一个课程下的所有文件 address: sid.getFiles
