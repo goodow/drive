@@ -54,11 +54,10 @@ files:
       path: xx    
 ...
 
---- # 请求设备的位置信息 address: sid.drive.settings.position
-position: true # 位置
+--- # 请求设备的位置信息 address: sid.drive.settings.location
 ...
 
---- # 回应请求 address: sid.drive.settings.position
+--- # 回应请求 address: sid.drive.settings.location
 NetWorkType: WIFI # 网络类型：WIFI或者mobile
 MCC+MNC: 46003 # 联通：46000 移动：46001 电信: 46003
 CID: 4566 # 移动和联通 gsm cell id
