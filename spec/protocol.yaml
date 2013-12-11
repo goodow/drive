@@ -19,10 +19,11 @@ path: sample.jpg
 ...
 
 --- # 调节音量 address: sid.drive.settings.audio
-mute: true
-increase: 0.0~1.0
-decrease: 0.0~1.0
-volume: 0.0~1.0
+mute: true # 静音  四个参数中只有一个有效，优先级依次向下
+volume: 0.5 # 设置音量的大小  范围：0.0~1.0   
+increase: 0.5 # 音量的增幅大小  范围：0.0~1.0
+decrease: 0.5 # 音量的减幅大小  范围：0.0~1.0
+
 
 
 
