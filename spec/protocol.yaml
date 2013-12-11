@@ -53,3 +53,20 @@ files:
     - filename: 苹果胸牌A3参考线-01.jpg
       path: xx    
 ...
+
+--- # 请求设备的位置信息 address: sid.drive.settings.position
+position: true # 位置
+...
+
+--- # 回应请求 address: sid.drive.settings.position
+NetWorkType: WIFI # 网络类型：WIFI或者mobile
+MCC+MNC: 46003 # 联通：46000 移动：46001 电信: 46003
+CID: 4566 # 移动和联通 gsm cell id
+LAC: 39910 # 移动和联通 gsm location area code
+PSC: 1 # 移动和联通 primary scrambling code for UMTS
+BID: 18881.0 # 电信 cdma base station identification number
+NID: 1.0 # 电信 cdma network identification number
+SID: 13824.0 # 电信 cdma system identification number
+Latitude: 2.147483647E9 # 电信 cdma base station latitude
+Longitude: 2.147483647E9 # 电信 cdma base station longitude
+...
