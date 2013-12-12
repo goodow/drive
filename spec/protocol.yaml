@@ -9,6 +9,12 @@ path: sample.mp4
 --- # 播放mp3 address: sid.drive.player.mp3
 path: sample.mp3
 ...
+--- # mp3播放界面的控制 address: sid.drive.player.mp3.control
+exit: true # 退出  四个参数中只有一个有效，优先级依次向下
+play: true # 播放  对应界面上的播放键
+stop: true # 停止  对应界面上的停止键
+pause: true # 暂停  对应界面上的暂停键
+...
 
 --- # 播放flash address: sid.drive.player.swf
 path: sample.swf
@@ -19,10 +25,9 @@ path: sample.jpg
 ...
 
 --- # 调节音量 address: sid.drive.settings.audio
-mute: true # 静音  四个参数中只有一个有效，优先级依次向下
-volume: 0.5 # 设置音量的大小  范围：0.0~1.0   
-increase: 0.5 # 音量的增幅大小  范围：0.0~1.0
-decrease: 0.5 # 音量的减幅大小  范围：0.0~1.0
+mute: true # 静音
+volume: 0.5 # 设置音量的大小 [0.0,1.0]
+increase: -0.3 # 音量的增幅大小 [-1.0,1.0]
 ...
 
 --- # 请求一个课程下的所有文件 address: sid.getFiles
@@ -31,7 +36,6 @@ term: 上学期
 domain: 健康
 subject: 找朋友
 ...
-
 --- # 回应请求 address: sid.getFiles
 files: 
   pdf: 
@@ -47,3 +51,17 @@ files:
       path: xx    
 ...
 
+--- # 请求设备的位置信息 address: sid.drive.settings.location
+...
+--- # 回应请求 address: sid.drive.settings.location
+NetWorkType: WIFI # 网络类型：WIFI或者mobile
+MCC+MNC: 46003 # 联通：46000 移动：46001 电信: 46003
+CID: 4566 # 移动和联通 gsm cell id
+LAC: 39910 # 移动和联通 gsm location area code
+PSC: 1 # 移动和联通 primary scrambling code for UMTS
+BID: 18881.0 # 电信 cdma base station identification number
+NID: 1.0 # 电信 cdma network identification number
+SID: 13824.0 # 电信 cdma system identification number
+Latitude: 2.147483647E9 # 电信 cdma base station latitude
+Longitude: 2.147483647E9 # 电信 cdma base station longitude
+...
