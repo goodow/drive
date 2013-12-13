@@ -19,9 +19,18 @@ pause: true # 暂停  对应界面上的暂停键
 --- # 播放flash address: sid.drive.player.swf
 path: sample.swf
 ...
+--- # flash播放界面的控制 address: sid.drive.player.swf.control
+play: true # 播放  对应界面上的播放键  三个参数中只有一个有效，优先级依次向下
+pause: true # 暂停  暂停播放
+replay: true # 重播 对应界面上的播放键
+...
 
 --- # 查看图片 address: sid.drive.player.jpg
 path: sample.jpg
+...
+
+--- # 播放器的通用控制  address: sid.drive.play.control
+back: true # 关闭当前的播放器
 ...
 
 --- # 调节音量 address: sid.drive.settings.audio
