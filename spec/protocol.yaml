@@ -2,6 +2,18 @@
 path: sample.pdf
 ...
 
+--- # 播放PDF address: sid.drive.player.mupdf
+path: sample.pdf
+...
+
+--- # 控制pdf播放 address: sid.drive.player.pdf.control
+move: 9 # 相对于当前页码的偏移量移动,负数向前，正数向后
+page: 9 # 指定页码的移动，移动到制定的页数
+scale: 9 # 指定缩放数值,基数是1
+zoom: 9 # 指定缩放系数,基数是当前缩放值
+...
+
+
 --- # 播放mp4 address: sid.drive.player.mp4
 path: sample.mp4
 ...
