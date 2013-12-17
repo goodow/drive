@@ -29,8 +29,8 @@ replay: true # 重播 对应界面上的播放键
 path: sample.jpg
 ...
 
---- # 播放器的通用控制  address: sid.drive.play.control
-back: true # 关闭当前的播放器
+--- # 通用控制  address: sid.drive.control
+back: true # 返回
 ...
 
 --- # 调节音量 address: sid.drive.settings.audio
