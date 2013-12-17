@@ -1,4 +1,8 @@
---- # 播放PDF address: sid.drive.player.pdf
+--- # 播放PDF（依赖JoanZapata/android-pdfview） address: sid.drive.player.pdf
+path: sample.pdf
+...
+
+--- # 播放PDF(依赖bhavyahmehta/Pdf-Reader---Writer) address: sid.drive.player.mupdf
 path: sample.pdf
 ...
 
