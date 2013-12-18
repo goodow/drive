@@ -81,6 +81,8 @@ Longitude: 2.147483647E9 # 电信 cdma base station longitude
 hardware:
   MAC: 80:22:75:3c:0a:25 # MAC地址 
   IMEI: 866119010788223 #手机的IMEI
+  SCREENHEIGH：720 # 屏幕高度 单位px
+  SCREENWIDTH：1280 # 屏幕宽度 单位px
 software:
   AndroidId: d6ddd3d1cc5f989f # Android系统的ID
   IP: 192.168.10.36 # wifi联网后的ip地址
