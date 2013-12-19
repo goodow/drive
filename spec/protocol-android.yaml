@@ -5,3 +5,9 @@ path: sample.pdf
 --- # 播放PDF address: sid.drive.player.pdf.mu
 path: sample.pdf
 ...
+
+--- # 播放flash address: sid.drive.player.swf.button
+path: sample.swf
+
+--- # 播放flash address: sid.drive.player.swf.webview
+path: sample.swf
