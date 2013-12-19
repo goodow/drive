@@ -17,9 +17,11 @@ path: sample.mp4
 path: sample.mp3
 ...
 --- # mp3播放界面的控制 address: sid.drive.player.mp3.control
-play: true # 播放 三个参数中只有一个有效，优先级依次向下
+play: true # 播放 四个参数中只有一个有效，优先级依次向下
 pause: true # 暂停  
+stop: true # 停止
 replay: true # 重播
+progress: 0.2 # 设置播放的进度  范围：[0.0,1.0]
 ...
 
 --- # 播放flash address: sid.drive.player.swf
