@@ -8,6 +8,19 @@ path: sample.pdf
 
 --- # 播放flash address: sid.drive.player.swf.button
 path: sample.swf
+...
 
 --- # 播放flash address: sid.drive.player.swf.webview
 path: sample.swf
+...
+
+--- # 屏幕黑屏 address: sid.drive.settings.brightness.window
+dark: true # 变暗 两个参数只有一个有效，优先级依次向下
+light: true # 变亮
+...
+
+--- # 屏幕黑屏 address: sid.drive.control（只对平板，手机有效）
+dark: true # 变暗 两个参数只有一个有效，优先级依次向下
+light: true # 变亮
+...
+
