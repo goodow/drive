@@ -42,9 +42,14 @@ back: true # 返回
 ...
 
 --- # 调节音量 address: sid.drive.settings.audio
-mute: true # 静音
+mute: true # 静音 三个参数中，只有一个有效，优先级依次向下
 volume: 0.5 # 设置音量的大小 [0.0,1.0]
 range: -0.3 # 音量的增幅大小 [-1.0,1.0]
+...
+
+--- # 屏幕黑屏 address: sid.drive.settings.brightness
+dark: true # 变暗 两个参数只有一个有效，优先级依次向下
+light: true # 变亮
 ...
 
 --- # 请求一个课程下的所有文件 address: sid.getFiles
