@@ -36,6 +36,12 @@ replay: true # 重播 对应界面上的播放键
 --- # 查看图片 address: sid.drive.player.jpg
 path: sample.jpg
 ...
+--- # 图片放大缩小 address: sid.drive.player.jpg.control
+zoom: 1 # 指定缩放系数,基数是屏幕的宽高   0<N<1是缩小 1是不变 1<N是放大
+range: -0.3 # 缩放的增幅度大小  范围：(-1.0,1.0]
+horizontal: 0.1 # 水平移动 范围：[-1.0，1.0] 移动距离为：horizontal*屏幕宽度
+verical: -1 # 竖直移动 范围：[-1.0，1.0] 移动距离为：verical*屏幕高度
+...
 
 --- # 通用控制  address: sid.drive.control
 back: true # 返回
