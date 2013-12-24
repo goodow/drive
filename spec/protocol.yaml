@@ -116,14 +116,13 @@ domain: 健康
 --- # 回应请求 address: sid.drive.getSubjects
 subjects:
  - subjectname: 找朋友
+   path: /mnt/sdcard/xx/找朋友
  - subjectname: 领域
+   path: /mnt/sdcard/xx/领域
 ...
 
 --- # 请求一个活动下的所有文件 address: sid.drive.getFiles
-grade: 小班
-term: 上学期
-domain: 健康
-subject: 找朋友
+path: /mnt/sdcard/xx/找朋友
 ...
 --- # 回应请求 address: sid.drive.getFiles
 files: 
