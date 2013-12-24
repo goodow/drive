@@ -38,7 +38,9 @@ path: sample.jpg
 ...
 
 --- # 通用控制  address: sid.drive.control
-back: true # 返回
+return: true # 返回
+shutdown: true # 关机
+brightness: true # 黑屏 将屏幕亮度设置为0
 ...
 
 --- # 调节音量 address: sid.drive.settings.audio
@@ -81,13 +83,7 @@ software:
 # 首页
 --- # 打开收藏夹 address: sid.drive.view.favorite
 ...
---- # 屏幕 address: sid.drive.settings.brightness
-strength: 0 # 屏幕亮度调为0
-...
 --- # 设置 address: sid.drive.view.settings
-...
---- # 关机 address: sid.drive.control
-shutdown: true # 开关机
 ...
 --- # 和谐发展课程 address: sid.drive.view.harmony
 ...
