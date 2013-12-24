@@ -151,6 +151,12 @@ previous: true # 上一页
 next: true # 下一页
 delete: /mnt/sdcard/xx/xx.pdf # 删除
 ...
+--- # 活动详情 address: sid.drive.view.detail
+grade: 小班
+term: 上学期
+domain: 健康
+subject: 找朋友
+...
 
 #设置
 --- # wifi设置 address: sid.drive.settings.wifi
