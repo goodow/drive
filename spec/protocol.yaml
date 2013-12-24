@@ -146,7 +146,7 @@ next: true # 下一页
 --- # 上一页和下一页 address: sid.drive.favorite
 previous: true # 上一页
 next: true # 下一页
-delete: /mnt/sdcard/xx/xx.pdf # 删除
+delete: 小班/上学期/健康/找朋友 # 删除活动
 ...
 --- # 活动详情 address: sid.drive.view.detail
 grade: 小班
