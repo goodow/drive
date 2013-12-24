@@ -78,14 +78,15 @@ software:
   SDK: 15 # SDK的版本
 ...
 
-#首页
---- # 打开收藏夹 address: sid.drive.common.favorite
+# 首页
+--- # 打开收藏夹 address: sid.drive.view.favorite
 ...
---- # 屏幕 address: sid.drive.common.screenlock
-strength: 0.1 # 范围：[0,1]
+--- # 屏幕 address: sid.drive.settings.brightness
+strength: 0 # 屏幕亮度调为0
 ...
---- # 设置和开关机控制 address: sid.drive.luncher.control
-settings: true # 设置
+--- # 设置 address: sid.drive.view.settings
+...
+--- # 关机 address: sid.drive.control
 shutdown: true # 开关机
 ...
 --- # 和谐发展课程 address: sid.drive.view.harmony
@@ -102,12 +103,12 @@ shutdown: true # 开关机
 ...
 --- # 网络 address: sid.drive.connectivity.info
 wifi:
- strength: 0.7 # 范围： [0, 1]
+  strength: 0.7 # 范围： [0, 1]
 3g:
- strength: 0.3 # 范围： [0, 1]
+  strength: 0.3 # 范围： [0, 1]
 ...
 
-#和谐发展页
+# 和谐发展页
 --- # 请求一个课程下的所有活动 address: sid.drive.getSubjects
 grade: 小班
 term: 上学期
@@ -115,8 +116,8 @@ domain: 健康
 ...
 --- # 回应请求 address: sid.drive.getSubjects
 subjects:
- - subjectname: 找朋友
- - subjectname: 领域
+  - subjectname: 找朋友
+  - subjectname: 领域
 ...
 
 --- # 请求一个活动下的所有文件 address: sid.drive.getFiles
@@ -145,7 +146,7 @@ previous: true # 上一页
 next: true # 下一页
 ...
 
-#收藏夹
+# 收藏夹
 --- # 上一页和下一页 address: sid.drive.favorite
 previous: true # 上一页
 next: true # 下一页
@@ -158,7 +159,7 @@ domain: 健康
 subject: 找朋友
 ...
 
-#设置
+# 设置
 --- # wifi设置 address: sid.drive.settings.wifi
 ...
 --- # 分辨率输出 address: sid.drive.settings.resolution
