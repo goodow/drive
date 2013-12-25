@@ -40,7 +40,7 @@ path: sample.jpg
 --- # 通用控制  address: sid.drive.control
 return: true # 返回
 shutdown: true # 关机
-brightness: true # 黑屏 将屏幕亮度设置为0
+brightness: 0 # 黑屏 将屏幕亮度设置为0
 ...
 
 --- # 调节音量 address: sid.drive.settings.audio
@@ -97,7 +97,7 @@ software:
 ...
 --- # 图画书 address: sid.drive.view.ebook
 ...
---- # 网络 address: sid.drive.connectivity.info
+--- # 网络 address: sid.drive.settings.net
 wifi:
   strength: 0.7 # 范围： [0, 1]
 3g:
