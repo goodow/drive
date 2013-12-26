@@ -40,7 +40,11 @@ path: sample.jpg
 --- # 通用控制  address: sid.drive.control
 return: true # 返回
 shutdown: true # 关机
-brightness: 0 # 黑屏 将屏幕亮度设置为0
+brightness: 0 # 屏幕亮度 范围[0,1] 黑屏 将屏幕亮度设置为0
+...
+
+--- # 屏幕亮度调节 address: sid.drive.settings.brightness
+brightness: 0.5 # 范围：[0,1]
 ...
 
 --- # 调节音量 address: sid.drive.settings.audio
