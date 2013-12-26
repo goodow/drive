@@ -3,10 +3,10 @@ path: sample.pdf
 ...
 
 --- # 控制pdf播放 address: sid.drive.player.pdf.control
-move: 9 # 相对于当前页码的偏移量移动,负数向前，正数向后
+move: 2 # 相对于当前页码的偏移量移动,负数向前，正数向后
 page: 9 # 指定页码的移动，移动到制定的页数
-scale: 9 # 指定缩放数值,基数是1
-zoom: 9 # 指定缩放系数,基数是当前缩放值 0<N<1是缩小 1是不变 1<N是放大
+scale: 0.4 # 指定缩放数值,基数是1
+zoom: 3 # 指定缩放系数,基数是当前缩放值 0<N<1是缩小 1是不变 1<N是放大
 ...
 
 --- # 播放mp4 address: sid.drive.player.mp4
@@ -38,34 +38,24 @@ path: sample.jpg
 ...
 
 --- # 通用控制  address: sid.drive.control
-back: true # 返回
+return: true # 返回
+shutdown: true # 关机
+brightness: 0 # 屏幕亮度 [0,1] 0表示黑屏
 ...
 
---- # 调节音量 address: sid.drive.settings.audio
-mute: true # 静音
-volume: 0.5 # 设置音量的大小 [0.0,1.0]
+# address: sid.drive.audio 音量
+--- # 请求信息
+action: get
+...
+--- # 返回结果
+&audioInfo
+  mute: true # 静音状态
+  volume: 0.5 # 当前音量的大小 [0.0,1.0]
+...
+--- # 控制信号
+action: post
+<<: *audioInfo
 range: -0.3 # 音量的增幅大小 [-1.0,1.0]
-...
-
---- # 请求一个课程下的所有文件 address: sid.getFiles
-grade: 小班
-term: 上学期
-domain: 健康
-subject: 找朋友
-...
---- # 回应请求 address: sid.getFiles
-files: 
-  pdf: 
-    - filename: 找朋友 活动设计.pdf
-      path: /mnt/sdcard/xx/xx.pdf
-    - filename: 找朋友 文学作品.pdf
-      path: xx
-  jpg: 
-    - filename: 苹果胸牌A3参考线-01.jpg
-      path: xx
-  swf: 
-    - filename: 苹果胸牌A3参考线-01.jpg
-      path: xx    
 ...
 
 --- # 请求设备的位置信息 address: sid.drive.settings.location
@@ -99,4 +89,109 @@ software:
   SDK: 15 # SDK的版本
 ...
 
+# 首页
+--- # 打开收藏夹 address: sid.drive.view.favorite
+...
+--- # 设置 address: sid.drive.view.settings
+...
+--- # 和谐发展课程 address: sid.drive.view.harmony
+...
+--- # 托班方案 address: sid.drive.view.toddler
+...
+--- # 教学示范课 address: sid.drive.view.case
+...
+--- # 入学准备 address: sid.drive.view.readiness
+...
+--- # 智能开发 address： sid.drive.view.intelligence
+...
+--- # 图画书 address: sid.drive.view.ebook
+...
 
+# address: sid.drive.connectivity 网络
+--- # 获得网络信息
+action: get
+...
+--- # 响应
+&connectivity
+  wifi:
+    strength: 0.7 # 范围： [0, 1]
+  3g:
+    strength: 0.3 # 范围： [0, 1]
+  time: 12月25日PM 07：48 # 当前时间
+...
+--- # 界面呈现
+action: post
+<<: *connectivity
+...
+
+# address: sid.drive.category
+--- # 请求一个分类下的所有活动
+action: get
+category: &domain
+  grade: 小班
+  term: 上学期
+  domain: 健康
+...
+--- # 返回活动列表
+subjects: &subjects
+  - name: 找朋友
+  - name: 领域
+...
+--- # 界面呈现
+action: post
+domain: *domain
+subjects: *subjects
+...
+
+# address: sid.drive.subject
+--- # 请求一个活动下的所有文件
+action: get
+subject: &subject
+  <<: *domain
+  subject: 找朋友
+...
+--- # 返回文件列表
+files: &files
+  pdf: 
+    - filename: 找朋友 活动设计.pdf
+      path: xx.pdf
+    - filename: 找朋友 文学作品.pdf
+      path: yy.pdf
+  jpg: 
+    - filename: 苹果胸牌A3参考线-01.jpg
+      path: xx.jpg
+  swf: 
+    - filename: 苹果胸牌A3参考线-01.jpg
+      path: xx.jpg
+...
+--- # 界面呈现
+action: post
+subject: *subject
+files: *files
+...
+
+
+# address: sid.drive.view.control
+--- # 界面呈现控制
+previous: true # 上一页
+next: true # 下一页
+remove: 
+  subjects: 
+    - *subject # 删除收藏夹里的某个活动
+...
+
+--- # 活动详情 address: sid.drive.view.detail
+subject: *subject
+...
+
+# 设置
+--- # wifi设置 address: sid.drive.view.wifi
+...
+--- # 分辨率输出 address: sid.drive.view.resolution
+...
+--- # 屏幕偏移 address: sid.drive.view.screenOffset
+...
+--- # 关于我们 address: sid.drive.view.aboutUs
+...
+--- # 重启 address: sid.drive.settings.reboot
+...
