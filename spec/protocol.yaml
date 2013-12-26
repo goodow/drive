@@ -108,6 +108,8 @@ wifi:
   strength: 0.3 # 范围： [0, 1]
 time: 12月25日PM 07：48 # 当前时间
 ...
+--- # 第一次进入时，获得网络信息 address: sid.drive.connectivity.info.get
+...
 
 # 和谐发展页
 --- # 请求一个课程下的所有活动 address: sid.drive.getSubjects
