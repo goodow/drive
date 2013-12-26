@@ -101,7 +101,7 @@ software:
 ...
 --- # 图画书 address: sid.drive.view.ebook
 ...
---- # 网络 address: sid.drive.settings.net
+--- # 网络 address: sid.drive.connectivity.info
 wifi:
   strength: 0.7 # 范围： [0, 1]
 3g:
