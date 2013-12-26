@@ -38,34 +38,19 @@ path: sample.jpg
 ...
 
 --- # 通用控制  address: sid.drive.control
-back: true # 返回
+return: true # 返回
+shutdown: true # 关机
+brightness: 0 # 屏幕亮度 范围[0,1] 黑屏 将屏幕亮度设置为0
+...
+
+--- # 屏幕亮度调节 address: sid.drive.settings.brightness
+brightness: 0.5 # 范围：[0,1]
 ...
 
 --- # 调节音量 address: sid.drive.settings.audio
 mute: true # 静音
 volume: 0.5 # 设置音量的大小 [0.0,1.0]
 range: -0.3 # 音量的增幅大小 [-1.0,1.0]
-...
-
---- # 请求一个课程下的所有文件 address: sid.getFiles
-grade: 小班
-term: 上学期
-domain: 健康
-subject: 找朋友
-...
---- # 回应请求 address: sid.getFiles
-files: 
-  pdf: 
-    - filename: 找朋友 活动设计.pdf
-      path: /mnt/sdcard/xx/xx.pdf
-    - filename: 找朋友 文学作品.pdf
-      path: xx
-  jpg: 
-    - filename: 苹果胸牌A3参考线-01.jpg
-      path: xx
-  swf: 
-    - filename: 苹果胸牌A3参考线-01.jpg
-      path: xx    
 ...
 
 --- # 请求设备的位置信息 address: sid.drive.settings.location
@@ -97,6 +82,96 @@ software:
   Model: K-Touch W760 # 设备的型号
   Version: 4.0.4 # 系统的版本
   SDK: 15 # SDK的版本
+...
+
+# 首页
+--- # 打开收藏夹 address: sid.drive.view.favorite
+...
+--- # 设置 address: sid.drive.view.settings
+...
+--- # 和谐发展课程 address: sid.drive.view.harmony
+...
+--- # 托班方案 address: sid.drive.view.toddler
+...
+--- # 教学示范课 address: sid.drive.view.case
+...
+--- # 入学准备 address: sid.drive.view.readiness
+...
+--- # 智能开发 address： sid.drive.view.intelligence
+...
+--- # 图画书 address: sid.drive.view.ebook
+...
+--- # 网络 address: sid.drive.connectivity.info
+wifi:
+  strength: 0.7 # 范围： [0, 1]
+3g:
+  strength: 0.3 # 范围： [0, 1]
+time: 12月25日PM 07：48 # 当前时间
+...
+--- # 第一次进入时，获得网络信息 address: sid.drive.connectivity.info.get
+...
+
+# 和谐发展页
+--- # 请求一个课程下的所有活动 address: sid.drive.getSubjects
+grade: 小班
+term: 上学期
+domain: 健康
+...
+--- # 回应请求 address: sid.drive.getSubjects
+subjects:
+  - subjectname: 找朋友
+  - subjectname: 领域
+...
+
+--- # 请求一个活动下的所有文件 address: sid.drive.getFiles
+grade: 小班
+term: 上学期
+domain: 健康
+subject: 找朋友
+...
+--- # 回应请求 address: sid.drive.getFiles
+files: 
+  pdf: 
+    - filename: 找朋友 活动设计.pdf
+      path: /mnt/sdcard/xx/xx.pdf
+    - filename: 找朋友 文学作品.pdf
+      path: xx
+  jpg: 
+    - filename: 苹果胸牌A3参考线-01.jpg
+      path: xx
+  swf: 
+    - filename: 苹果胸牌A3参考线-01.jpg
+      path: xx    
+...
+
+--- # 上一页和下一页 address: sid.drive.harmony
+previous: true # 上一页
+next: true # 下一页
+...
+
+# 收藏夹
+--- # 上一页和下一页 address: sid.drive.favorite
+previous: true # 上一页
+next: true # 下一页
+delete: 小班/上学期/健康/找朋友 # 删除活动
+...
+--- # 活动详情 address: sid.drive.view.detail
+grade: 小班
+term: 上学期
+domain: 健康
+subject: 找朋友
+...
+
+# 设置
+--- # wifi设置 address: sid.drive.view.wifi
+...
+--- # 分辨率输出 address: sid.drive.view.resolution
+...
+--- # 屏幕偏移 address: sid.drive.view.screenOffset
+...
+--- # 关于我们 address: sid.drive.view.aboutUs
+...
+--- # 重启 address: sid.drive.settings.reboot
 ...
 
 
