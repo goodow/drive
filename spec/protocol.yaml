@@ -196,3 +196,9 @@ subject: *subject
 ...
 --- # 重启 address: sid.drive.settings.reboot
 ...
+
+# 标注 address: sid.drive.view.scrawl
+begin: true # 开始标注
+clear: true # 清空标注
+end: true # 结束标注
+...
