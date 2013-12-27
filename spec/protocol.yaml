@@ -56,6 +56,7 @@ action: get
 action: post
 <<: *audioInfo
 range: -0.3 # 音量的增幅大小 [-1.0,1.0]
+unmute: true # 取消静音
 ...
 
 --- # 请求设备的位置信息 address: sid.drive.settings.location
