@@ -89,22 +89,7 @@ software:
   SDK: 15 # SDK的版本
 ...
 
-# 首页
---- # 打开收藏夹 address: sid.drive.view.favorite
-...
 --- # 设置 address: sid.drive.view.settings
-...
---- # 和谐发展课程 address: sid.drive.view.harmony
-...
---- # 托班方案 address: sid.drive.view.toddler
-...
---- # 教学示范课 address: sid.drive.view.case
-...
---- # 入学准备 address: sid.drive.view.readiness
-...
---- # 智能开发 address： sid.drive.view.intelligence
-...
---- # 图画书 address: sid.drive.view.ebook
 ...
 
 # address: sid.drive.connectivity 网络
@@ -124,38 +109,39 @@ action: post
 <<: *connectivity
 ...
 
-# address: sid.drive.category
+# address: sid.drive.topic
 --- # 请求一个分类下的所有活动
 action: get
-category: &domain
-  grade: 小班
-  term: 上学期
-  domain: 健康
+query: &tags
+  type: 和谐 # 类型枚举: 和谐/收藏/托班/示范课/入学准备/智能开发/电子书
+  grade: 小 # 年级
+  term: 上 # 学期
+  topic: 健康 # 领域或主题
 ...
 --- # 返回活动列表
-subjects: &subjects
-  - name: 找朋友
-  - name: 领域
+&activities
+  activities:
+    - *activity
 ...
 --- # 界面呈现
 action: post
-domain: *domain
-subjects: *subjects
+query: *tags
+<<: *activities
 ...
 --- # 界面呈现 - 删除
 action: delete
-subjects: 
-  - *subject # 删除收藏夹里的某个活动
+<<: *activities # 删除活动
 ...
 
-# address: sid.drive.subject
+# address: sid.drive.activity
 --- # 请求一个活动下的所有文件
 action: get
-subject: &subject
-  <<: *domain
-  subject: 找朋友
+activity: &activity
+  tags: *tags
+  title: 找朋友
 ...
 --- # 返回文件列表
+activity: *activity
 files: &files
   pdf: 
     - filename: 找朋友 活动设计.pdf
@@ -171,7 +157,7 @@ files: &files
 ...
 --- # 界面呈现
 action: post
-subject: *subject
+activity: *activity
 files: *files
 ...
 
@@ -180,10 +166,6 @@ files: *files
 --- # 界面呈现控制
 previous: true # 上一页
 next: true # 下一页
-...
-
---- # 活动详情 address: sid.drive.view.detail
-subject: *subject
 ...
 
 # 设置
