@@ -180,7 +180,7 @@ next: true # 下一页
 --- # 重启 address: sid.drive.settings.reboot
 ...
 
-# 标注 address: sid.drive.view.scrawl
+--- # 标注 address: sid.drive.view.scrawl
 annotation: true # 开始标注为: true 结束标注为: false
 clear: true # 清空标注
 ...

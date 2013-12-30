@@ -11,3 +11,11 @@ path: sample.swf
 
 --- # 播放flash address: sid.drive.player.swf.webview
 path: sample.swf
+
+--- # 亮度调节 address: sid.drive.settings.brightness.view
+strength: 0.3 # 范围: [0, 1] 0表示全黑，1表示全亮
+...
+
+--- # 亮度调节 address: sid.drive.settings.brightness.light
+strength: 0.3 # 范围: [0, 1] 
+...
