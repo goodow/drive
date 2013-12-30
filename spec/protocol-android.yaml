@@ -13,9 +13,9 @@ path: sample.swf
 path: sample.swf
 
 --- # 亮度调节 address: sid.drive.settings.brightness.view
-strength: 0.3 # 范围: [0, 1] 0表示全黑，1表示全亮
+brightness: 0.3 # 范围: [0, 1] 0表示全黑，1表示全亮
 ...
 
 --- # 亮度调节 address: sid.drive.settings.brightness.light
-strength: 0.3 # 范围: [0, 1] 
+brightness: 0.3 # 范围: [0, 1] 
 ...
