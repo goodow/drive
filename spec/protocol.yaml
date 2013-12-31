@@ -1,46 +1,26 @@
---- # 播放PDF address: sid.drive.player.pdf
-path: sample.pdf
-...
-
---- # 控制pdf播放 address: sid.drive.player.pdf.control
-move: 2 # 相对于当前页码的偏移量移动,负数向前，正数向后
-page: 9 # 指定页码的移动，移动到制定的页数
-scale: 0.4 # 指定缩放数值,基数是1
-zoom: 3 # 指定缩放系数,基数是当前缩放值 0<N<1是缩小 1是不变 1<N是放大
-...
-
---- # 播放mp4 address: sid.drive.player.mp4
-path: sample.mp4
-...
-
---- # 播放mp3 address: sid.drive.player.mp3
-path: sample.mp3
-...
---- # mp3播放界面的控制 address: sid.drive.player.mp3.control
-play: true # 播放 四个参数中只有一个有效，优先级依次向下
-pause: true # 暂停  
-stop: true # 停止
-replay: true # 重播
+--- # address: sid.drive.player 播放器
+path: sample.pdf # 根据后缀选择对应的播放器
+play: 1 # 0表示停止, 1表示播放, 2表示暂停, 3表示重播 
 progress: 0.2 # 设置播放的进度  范围：[0.0,1.0]
+zoomTo: 3 # 指定缩放值, 基准是图片原始尺寸
+zoomBy: 0.4 # 缩放至=当前缩放值*该缩放倍数 大于0
+fit: 0 # 0表示适配屏幕(图片在屏幕上完全显示), 1表示宽度完全显示, 2表示高度完全显示
+pdf:
+  page: 9 # 跳转至该页
+  move: 2 # 相对于当前页码的偏移量移动, 负数向前, 正数向后
+image:
+  x: 0.5 # 范围: [0,1]  以图片左下角为原点
+  y: 0.5 # 范围: [0,1]  (x,y)是图片上的一点, 将指定的点移动到屏幕中央
 ...
 
---- # 播放flash address: sid.drive.player.swf
-path: sample.swf
-...
---- # flash播放界面的控制 address: sid.drive.player.swf.control
-play: true # 播放  对应界面上的播放键  三个参数中只有一个有效，优先级依次向下
-pause: true # 暂停  暂停播放
-replay: true # 重播 对应界面上的播放键
-...
-
---- # 查看图片 address: sid.drive.player.jpg
-path: sample.jpg
-...
-
---- # 通用控制  address: sid.drive.control
+--- # address: sid.drive.control 通用控制
 return: true # 返回
 shutdown: true # 关机
 brightness: 0 # 屏幕亮度 [0,1] 0表示黑屏
+...
+--- # address: sid.drive.view.control 界面呈现控制
+previous: true # 上一页
+next: true # 下一页
 ...
 
 # address: sid.drive.audio 音量
@@ -58,9 +38,9 @@ action: post
 range: -0.3 # 音量的增幅大小 [-1.0,1.0]
 ...
 
---- # 请求设备的位置信息 address: sid.drive.settings.location
+--- # address: sid.drive.settings.location 请求设备的位置信息
 ...
---- # 回应请求 address: sid.drive.settings.location
+--- # 回应请求
 NetWorkType: WIFI # 网络类型：WIFI或者mobile
 MCC+MNC: 46003 # 联通：46000 移动：46001 电信: 46003
 CID: 4566 # 移动和联通 gsm cell id
@@ -73,9 +53,9 @@ Latitude: 2.147483647E9 # 电信 cdma base station latitude
 Longitude: 2.147483647E9 # 电信 cdma base station longitude
 ...
 
---- # 请求设备的信息 address: sid.drive.settings.information
+--- # address: sid.drive.settings.information 请求设备的信息
 ...
---- # 回应请求 address: sid.drive.settings.information
+--- # 回应请求
 hardware:
   MAC: 80:22:75:3c:0a:25 # MAC地址 
   IMEI: 866119010788223 #手机的IMEI
@@ -87,9 +67,6 @@ software:
   Model: K-Touch W760 # 设备的型号
   Version: 4.0.4 # 系统的版本
   SDK: 15 # SDK的版本
-...
-
---- # 设置 address: sid.drive.view.settings
 ...
 
 # address: sid.drive.connectivity 网络
@@ -161,11 +138,7 @@ activity: *activity
 files: *files
 ...
 
-
-# address: sid.drive.view.control
---- # 界面呈现控制
-previous: true # 上一页
-next: true # 下一页
+--- # address: sid.drive.view.settings 设置界面
 ...
 
 # 设置
@@ -180,7 +153,7 @@ next: true # 下一页
 --- # 重启 address: sid.drive.settings.reboot
 ...
 
---- # 标注 address: sid.drive.view.scrawl
+--- # address: sid.drive.view.scrawl 画笔
 annotation: true # 开始标注为: true 结束标注为: false
 clear: true # 清空标注
 ...
