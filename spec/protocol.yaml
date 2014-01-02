@@ -105,9 +105,13 @@ action: post
 query: *tags
 <<: *activities
 ...
---- # 界面呈现 - 删除
+--- # 删除活动
 action: delete
-<<: *activities # 删除活动
+<<: *activities
+...
+--- # 新增活动
+action: put
+<<: *activities
 ...
 
 # address: sid.drive.activity
