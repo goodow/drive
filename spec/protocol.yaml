@@ -73,13 +73,10 @@ software:
 --- # 获得网络信息
 action: get
 ...
---- # 响应
+--- # 响应 # http://docs.phonegap.com/en/3.3.0/cordova_connection_connection.md.html#Connection
 &connectivity
-  wifi:
-    strength: 0.7 # 范围： [0, 1]
-  3g:
-    strength: 0.3 # 范围： [0, 1]
-  time: 12月25日PM 07：48 # 当前时间
+  type: wifi # 枚举 wifi/cell_2g/cell_3g/cell_4g/cell/ethernet/unknown/none
+  strength: 0.7 # [0, 1]
 ...
 --- # 界面呈现
 action: post
