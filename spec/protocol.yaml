@@ -102,15 +102,19 @@ action: post
 query: *tags
 <<: *activities
 ...
---- # 删除活动
-action: delete
-<<: *activities
-...
 --- # 新增活动
 action: put
 <<: *activities
 ...
-
+# sid.drive.topic.delete
+--- # 删除数据库中收藏的活动
+action: database
+<<: *activities
+...
+--- # 删除缓存中的活动
+action: cache
+<<: *activities
+...
 # sid.drive.activity
 --- # 请求一个活动下的所有文件
 action: get
