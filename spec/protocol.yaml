@@ -106,9 +106,15 @@ query: *tags
 action: delete
 <<: *activities
 ...
+--- # 回应
+status: ok
+...
 --- # 新增活动
 action: put
 <<: *activities
+...
+--- # 回应
+status: ok
 ...
 
 # sid.drive.activity
@@ -121,17 +127,12 @@ activity: &activity
 --- # 返回文件列表
 activity: *activity
 files: &files
-  pdf: 
-    - filename: 找朋友 活动设计.pdf
-      path: xx.pdf
-    - filename: 找朋友 文学作品.pdf
-      path: yy.pdf
-  jpg: 
-    - filename: 苹果胸牌A3参考线-01.jpg
-      path: xx.jpg
-  swf: 
-    - filename: 苹果胸牌A3参考线-01.jpg
-      path: xx.jpg
+  - filename: 活动设计-找朋友.pdf
+    path: xx.pdf
+  - filename: 文学作品-找朋友.pdf
+    path: yy.pdf
+  - filename: 胸牌-苹果.jpg
+    path: xx.jpg
 ...
 --- # 界面呈现
 action: post
