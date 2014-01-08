@@ -41,10 +41,11 @@ range: -0.3 # 音量的增幅大小 [-1.0,1.0]
 --- # sid.drive.settings.location 请求设备的位置信息
 ...
 --- # 回应请求
-NetWorkType: WIFI # 网络类型：WIFI或者mobile
-MCC+MNC: 46003 # 联通：46000 移动：46001 电信: 46003
-CID: 4566 # 移动和联通 gsm cell id
-LAC: 39910 # 移动和联通 gsm location area code
+networkType: wifi # 网络类型：wifi或者mobile
+mobileCountryCode: 460
+mobileNetworkCode: 1 # 联通：00 移动：01 电信: 03 
+locationAreaCode: 39910 # 移动和联通 gsm location area code
+cellId: 4566 # 移动和联通 gsm cell id
 PSC: 1 # 移动和联通 primary scrambling code for UMTS
 BID: 18881.0 # 电信 cdma base station identification number
 NID: 1.0 # 电信 cdma network identification number
@@ -173,4 +174,16 @@ key: 20 # http://developer.android.com/reference/android/view/KeyEvent.html
 
 --- # sid.drive.notification 信息通知
 content: 请在7天内接通网络, 逾期设备将需要重新激活
+...
+
+--- # sid.drive.auth 校验
+imei: 866119010788223
+mobileCountryCode: 460
+mobileNetworkCode: 0
+locationAreaCode: 39910
+cellId: 4566
+lastSuccessful: 1389168185304 # the number of milliseconds since January 1, 1970, 00:00:00 GMT
+...
+--- # 回应
+status: ok
 ...
