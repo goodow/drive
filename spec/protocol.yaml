@@ -170,3 +170,7 @@ clear: true # 清空标注
 --- # sid.drive.input 键盘鼠标信号模拟
 key: 20 # http://developer.android.com/reference/android/view/KeyEvent.html
 ...
+
+--- # sid.drive.notification 信息通知
+content: 请在7天内接通网络, 逾期设备将需要重新激活
+...
