@@ -140,6 +140,13 @@ action: post
 activity: *activity
 files: *files
 ...
+--- # 检查一个活动是否存在
+action: head
+activity: *activity
+...
+--- # 回应
+status: ok
+...
 
 # sid.drive.file
 --- # 请求一个目录下的所有文件和子目录
