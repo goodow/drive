@@ -1,7 +1,3 @@
-<<<<<<< HEAD
---- # @drive.equipmentID 切换设备
-=======
 --- # @drive.control.switch 切换设备
->>>>>>> ios 自有协议
 sid: xsid # 新设备ID
 ...
