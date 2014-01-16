@@ -1,21 +1,20 @@
---- # sid.drive.player.pdf.jz 播放PDF
+# 播放PDF
+--- # sid.drive.player.pdf.jz
+path: sample.pdf
+--- # sid.drive.player.pdf.mu
 path: sample.pdf
 ...
 
---- # sid.drive.player.pdf.mu 播放PDF
-path: sample.pdf
+# 播放flash
+--- # sid.drive.player.swf.button
+path: sample.swf
+--- # sid.drive.player.swf.webview
+path: sample.swf
 ...
 
---- # sid.drive.player.swf.button 播放flash
-path: sample.swf
-
---- # sid.drive.player.swf.webview 播放flash
-path: sample.swf
-
---- # sid.drive.settings.brightness.view 亮度调节
+# 亮度调节
+--- # sid.drive.settings.brightness.view
 brightness: 0.3 # 范围: [0, 1] 0表示全黑，1表示全亮
-...
-
---- # sid.drive.settings.brightness.light 亮度调节
+--- # sid.drive.settings.brightness.light
 brightness: 0.3 # 范围: [0, 1] 
 ...

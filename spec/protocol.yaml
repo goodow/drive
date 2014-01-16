@@ -2,11 +2,11 @@
 path: sample.pdf # 根据后缀选择对应的播放器
 play: 1 # 0表示停止, 1表示播放, 2表示暂停, 3表示重播 
 progress: 0.2 # 设置播放的进度  范围：[0.0,1.0]
-zoomTo: 3 # 指定缩放值, 基准是图片原始尺寸
-zoomBy: 0.4 # 缩放至=当前缩放值*该缩放倍数 大于0
+zoomTo: 3.0 # 指定缩放值, 基准是图片原始尺寸
+zoomBy: 0.4 # 缩放至=当前缩放值*该缩放倍数 (0, .inf)
 fit: 0 # 0表示适配屏幕(图片在屏幕上完全显示), 1表示宽度完全显示, 2表示高度完全显示
 page: &page # 分页
-  goTo: 9 # 跳转至该页, 大于等于1
+  goTo: 9 # 跳转至该页, [1, .inf)
   move: 2 # 翻页, 负数向前, 正数向后
 image:
   x: 0.5 # 范围: [0,1]  以图片左上角为原点
@@ -16,28 +16,25 @@ image:
 --- # sid.drive.control 通用控制
 return: true # 返回
 shutdown: 0 # 0表示关机 1表示重启
-brightness: 0 # 屏幕亮度 [0,1] 0表示黑屏
+brightness: 0.0 # 屏幕亮度 [0,1] 0表示黑屏
 page: *page # 分页
 ...
 
 # sid.drive.audio 音量
 --- # 请求信息
 action: get
-...
---- # 返回结果
-&audioInfo
-  mute: true # 静音状态
-  volume: 0.5 # 当前音量的大小 [0.0,1.0]
-...
---- # 控制信号
+--- &audioInfo # 返回结果
+mute: true # 静音状态
+volume: 0.5 # 当前音量的大小 [0.0,1.0]
+
+--- # 控制指令
 action: post
 <<: *audioInfo
-range: -0.3 # 音量的增幅大小 [-1.0,1.0]
+range: -0.3 # 音量的步进增幅, 该值为最大音量的百分比 [-1.0,1.0]
 ...
 
 --- # sid.drive.settings.location 请求设备的位置信息
-...
---- # 回应请求
+--- # 回应
 networkType: wifi # 网络类型：wifi或者mobile
 mobileCountryCode: 460
 mobileNetworkCode: 1 # 联通：00 移动：01 电信: 03 
@@ -52,8 +49,7 @@ Longitude: 2.147483647E9 # 电信 cdma base station longitude
 ...
 
 --- # sid.drive.settings.information 请求设备的信息
-...
---- # 回应请求
+--- # 回应
 hardware:
   MAC: 80:22:75:3c:0a:25 # MAC地址 
   IMEI: 866119010788223 #手机的IMEI
@@ -70,12 +66,10 @@ software:
 # sid.drive.connectivity 网络
 --- # 获得网络信息
 action: get
-...
---- # 响应 # http://docs.phonegap.com/en/3.3.0/cordova_connection_connection.md.html#Connection
-&connectivity
-  type: wifi # 枚举 wifi/cell_2g/cell_3g/cell_4g/cell/ethernet/unknown/none
-  strength: 0.7 # [0, 1]
-...
+--- &connectivity # 响应 http://docs.phonegap.com/en/3.3.0/cordova_connection_connection.md.html#Connection
+type: wifi # 枚举 wifi/cell_2g/cell_3g/cell_4g/cell/ethernet/unknown/none
+strength: 0.7 # [0, 1]
+
 --- # 界面呈现
 action: post
 <<: *connectivity
@@ -89,28 +83,24 @@ query: &tags
   grade: 小 # 年级
   term: 上 # 学期
   topic: 健康 # 领域或主题
-...
---- # 返回活动列表
-&activities
-  activities:
-    - *activity
-...
+--- &activities # 返回活动列表
+activities:
+  - *activity
+
 --- # 界面呈现
 action: post
 query: *tags
 <<: *activities
-...
+
 --- # 删除活动
 action: delete
 <<: *activities
-...
 --- # 回应
 status: ok
-...
+
 --- # 新增活动
 action: put
 <<: *activities
-...
 --- # 回应
 status: ok
 ...
@@ -121,7 +111,6 @@ action: get
 activity: &activity
   tags: *tags
   title: 找朋友
-...
 --- # 返回文件列表
 activity: *activity
 files: &files
@@ -129,18 +118,15 @@ files: &files
     path: xx.pdf
   - filename: 文学作品-找朋友.pdf
     path: yy.pdf
-  - filename: 胸牌-苹果.jpg
-    path: xx.jpg
-...
+
 --- # 界面呈现
 action: post
 activity: *activity
 files: *files
-...
+
 --- # 检查一个活动是否存在
 action: head
 activity: *activity
-...
 --- # 回应
 status: ok
 ...
@@ -148,22 +134,16 @@ status: ok
 # sid.drive.file
 --- # 请求一个目录下的所有文件和子目录
 path: goodow/drive/和谐/小/上/
-...
 --- # 返回文件及子目录列表
 folders: [科学, 语言]
 files: [儿歌-吹泡泡.mp3, 头饰-小猫.jpg]
 ...
 
---- # sid.drive.view.settings 设置界面
-...
-
 # 设置
---- # sid.drive.view.wifi wifi 设置
-...
+--- # sid.drive.view.settings 设置界面
+--- # sid.drive.view.wifi wifi设置
 --- # sid.drive.view.resolution 分辨率输出
-...
 --- # sid.drive.view.screenOffset 屏幕偏移
-...
 --- # sid.drive.view.aboutUs 关于我们
 ...
 
@@ -185,9 +165,8 @@ imei: 866119010788223
 mobileCountryCode: 460
 mobileNetworkCode: 0
 locationAreaCode: 39910
-cellId: 4566
+cellId: 4566000
 lastSuccessful: 1389168185304 # the number of milliseconds since January 1, 1970, 00:00:00 GMT
-...
 --- # 回应
 status: ok
 ...
