@@ -78,10 +78,10 @@ action: post
 # sid.drive.topic
 --- # 请求一个分类下的所有活动
 action: get
-query: &tags
+queries: &queries
   type: 和谐 # 类型枚举: 和谐/收藏/托班/示范课/入学准备/智能开发/电子书
-  grade: 小 # 年级
-  term: 上 # 学期
+  grade: 小 # 年级枚举: 小/中/大/学前
+  term: 上 # 学期枚举: 上/下
   topic: 健康 # 领域或主题
 --- &activities # 返回活动列表
 activities:
@@ -89,7 +89,7 @@ activities:
 
 --- # 界面呈现
 action: post
-query: *tags
+queries: *queries
 <<: *activities
 
 --- # 删除活动
@@ -109,7 +109,7 @@ status: ok
 --- # 请求一个活动下的所有文件
 action: get
 activity: &activity
-  tags: *tags
+  queries: *queries
   title: 找朋友
 --- # 返回文件列表
 activity: *activity
@@ -129,6 +129,14 @@ action: head
 activity: *activity
 --- # 回应
 status: ok
+...
+
+--- &queries # sid.drive.search
+contentType: audio/mp3 # 文件的MIME类型 http://en.wikipedia.org/wiki/MIME
+tags: [动物, 文学作品]
+query: 鸭子 # 模糊匹配搜索字符串
+--- # 回应
+*files
 ...
 
 # sid.drive.file
