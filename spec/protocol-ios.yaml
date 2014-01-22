@@ -1,3 +1,6 @@
 --- # @drive.control.switch 切换设备
 sid: xsid # 新设备ID
 ...
+
+--- # @drive.control.class 本地课程数据转发
+queries: *queries
