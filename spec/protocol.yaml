@@ -132,11 +132,22 @@ status: ok
 ...
 
 --- &queries # sid.drive.search
+typeId: 6dedfd23-9b06-40ca-9767-8bd02e0c575d # 类型在数据库中的ID
+type: 文本 # 类型名称
 contentType: audio/mp3 # 文件的MIME类型 http://en.wikipedia.org/wiki/MIME
 tags: [动物, 文学作品]
 query: 鸭子 # 模糊匹配搜索字符串
 --- # 回应
 *files
+...
+
+--- # sid.drive.type.list
+typeId: 6dedfd23-9b06-40ca-9767-8bd02e0c575d # 类型在数据库中的ID
+type: 文本 # 类型名称
+--- # 回应
+subTypes: 
+  - typeId:6dedfd23-9b06-40ca-9767-8bd02e0c5754 # 类型在数据库中的ID
+    type: 健康 # 类型名称
 ...
 
 # sid.drive.file
