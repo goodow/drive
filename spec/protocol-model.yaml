@@ -1,0 +1,104 @@
+# sid.drive.attachment
+--- # 查询详情
+action: get
+id: o90ad
+--- &attachment # 响应
+id: o90ad
+title: 文件标题
+date: 1389168185304
+name: 文件名.mp3
+contentType: audio/mp3
+contentLength: 113585243
+keywords: 文件别名, 关键字
+url: 文件路径
+thumbnail: 缩略图id
+
+--- # 添加戓修改
+action: post
+attachment: *attachment
+--- # 响应
+status: ok
+
+--- # 删除
+action: delete
+ids: [o90ad] # 根据id列表进行删除
+--- # 响应
+status: ok
+...
+
+--- # sid.drive.attachment.search 附件搜索
+contentType: audio/mp3 # 附件的MIME类型 http://en.wikipedia.org/wiki/MIME
+tags: [动物, 文学作品]
+query: 鸭子 # 模糊匹配搜索字符串
+--- # 回应
+[*attachment]
+...
+
+# sid.drive.tag
+--- # 查询标签明细
+action: get
+tag: 
+  type: attachment # or tag
+  key: 4rqe3
+  label: 标签名
+--- &tag # 回应
+type: attachment
+key: 4rqe3
+label: 标签名
+
+--- # 添加戓修改
+action: post
+tag: *tag
+--- # 响应
+status: ok
+
+--- # 删除
+action: delete
+tags: 
+  - type: attachment # or tag
+    key: 4rqe3
+    label: 标签名
+--- # 响应
+status: ok
+...
+
+--- # sid.drive.tag.children 查询同时属于多个标签的子标签
+tags: [父标签名]
+--- # 响应
+[子标签名]
+...
+
+# sid.drive.star
+--- # 查询明细
+action: get
+star: 
+  key: 2fs
+  type: attachment # or tag
+--- &star # 回应
+key: a1tr
+type: attachment
+
+--- # 添加戓修改
+action: post
+star: *star
+--- # 响应
+status: ok
+
+--- # 删除
+action: delete
+stars: 
+  - key: a1tr
+    type: attachment
+--- # 响应
+status: ok
+...
+
+--- # sid.drive.player.analytics 播放数据统计
+sid: sid
+analytics:
+  - attachment: 2fs
+    timestamp: [1389168185304]
+--- # 响应
+status: ok
+ack: 1389168185304 # 接收到的最后一次时间
+...

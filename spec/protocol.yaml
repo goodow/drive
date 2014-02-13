@@ -33,6 +33,17 @@ action: post
 range: -0.3 # 音量的步进增幅, 该值为最大音量的百分比 [-1.0,1.0]
 ...
 
+--- # sid.drive.topic 主题界面呈现
+action: post
+tags: [小班, 上学期]
+...
+
+--- # sid.drive.activity 活动界面呈现
+action: post
+tags: [小班, 上学期, 健康]
+title: 活动标题
+...
+
 --- # sid.drive.settings.location 请求设备的位置信息
 --- # 回应
 networkType: wifi # 网络类型：wifi或者mobile
@@ -75,89 +86,6 @@ action: post
 <<: *connectivity
 ...
 
-# sid.drive.topic
---- # 请求一个分类下的所有活动
-action: get
-queries: &queries
-  type: 和谐 # 类型枚举: 和谐/收藏/托班/示范课/入学准备/智能开发/电子书
-  grade: 小 # 年级枚举: 小/中/大/学前
-  term: 上 # 学期枚举: 上/下
-  topic: 健康 # 领域或主题
---- &activities # 返回活动列表
-activities:
-  - *activity
-
---- # 界面呈现
-action: post
-queries: *queries
-<<: *activities
-
---- # 删除活动
-action: delete
-<<: *activities
---- # 回应
-status: ok
-
---- # 新增活动
-action: put
-<<: *activities
---- # 回应
-status: ok
-...
-
-# sid.drive.activity
---- # 请求一个活动下的所有文件
-action: get
-activity: &activity
-  queries: *queries
-  title: 找朋友
---- # 返回文件列表
-activity: *activity
-files: &files
-  - filename: 活动设计-找朋友.pdf
-    path: xx.pdf
-  - filename: 文学作品-找朋友.pdf
-    path: yy.pdf
-
---- # 界面呈现
-action: post
-activity: *activity
-files: *files
-
---- # 检查一个活动是否存在
-action: head
-activity: *activity
---- # 回应
-status: ok
-...
-
---- &queries # sid.drive.search
-typeId: 6dedfd23-9b06-40ca-9767-8bd02e0c575d # 类型在数据库中的ID
-type: 文本 # 类型名称
-contentType: audio/mp3 # 文件的MIME类型 http://en.wikipedia.org/wiki/MIME
-tags: [动物, 文学作品]
-query: 鸭子 # 模糊匹配搜索字符串
---- # 回应
-*files
-...
-
---- # sid.drive.type.list
-typeId: 6dedfd23-9b06-40ca-9767-8bd02e0c575d # 类型在数据库中的ID
-type: 文本 # 类型名称
---- # 回应
-subTypes: 
-  - typeId:6dedfd23-9b06-40ca-9767-8bd02e0c5754 # 类型在数据库中的ID
-    type: 健康 # 类型名称
-...
-
-# sid.drive.file
---- # 请求一个目录下的所有文件和子目录
-path: goodow/drive/和谐/小/上/
---- # 返回文件及子目录列表
-folders: [科学, 语言]
-files: [儿歌-吹泡泡.mp3, 头饰-小猫.jpg]
-...
-
 # 设置
 --- # sid.drive.view.settings 设置界面
 --- # sid.drive.view.wifi wifi设置
@@ -194,3 +122,9 @@ status: ok
 path: xxx.jpg # 文件路径
 ...
 
+--- # sid.drive.file 请求一个目录下的所有文件和子目录
+path: goodow/drive/和谐/小/上/
+--- # 返回文件及子目录列表
+folders: [科学, 语言]
+files: [儿歌-吹泡泡.mp3, 头饰-小猫.jpg]
+...
