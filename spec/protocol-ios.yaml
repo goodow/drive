@@ -4,3 +4,9 @@ sid: xsid # 新设备ID
 
 --- # @drive.control.class 本地课程数据转发
 queries: *queries
+
+# 设置
+--- # @drive.control.settings.wifi wifi设置
+--- # @drive.control.settings.resolution 分辨率输出
+--- # @drive.control.settings.screenOffset 屏幕偏移
+--- # @drive.control.settings.aboutUs 关于我们
