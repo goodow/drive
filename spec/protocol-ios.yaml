@@ -6,7 +6,10 @@ sid: xsid # 新设备ID
 queries: *queries
 
 # 设置
---- # @drive.control.settings.wifi wifi设置
+--- # @drive.control.settings.wifi wifi 设置
 --- # @drive.control.settings.resolution 分辨率输出
 --- # @drive.control.settings.screenOffset 屏幕偏移
 --- # @drive.control.settings.aboutUs 关于我们
+
+--- # @drive.control.settings.location 转发请求设备的位置信息
+--- # @drive.control.settings.information 转发请求设备的信息
