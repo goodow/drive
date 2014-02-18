@@ -18,3 +18,7 @@ brightness: 0.3 # 范围: [0, 1] 0表示全黑，1表示全亮
 --- # sid.drive.settings.brightness.light
 brightness: 0.3 # 范围: [0, 1] 
 ...
+
+# 请求播放数据统计
+--- # sid.drive.player.analytics.request
+...
