@@ -22,3 +22,9 @@ brightness: 0.3 # 范围: [0, 1]
 # 请求播放数据统计
 --- # sid.drive.player.analytics.request
 ...
+
+# 清空数据库中的所有数据
+--- # sid.drive.db.clean
+--- # 响应
+status: ok
+...
