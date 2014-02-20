@@ -94,6 +94,9 @@ action: post
 --- # sid.drive.view.aboutUs 关于我们
 ...
 
+--- # sid.drive.view.home 回到首页
+...
+
 --- # sid.drive.view.scrawl 画笔
 annotation: true # 开始标注为: true 结束标注为: false
 clear: true # 清空标注
