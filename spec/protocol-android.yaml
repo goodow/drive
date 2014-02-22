@@ -23,8 +23,16 @@ brightness: 0.3 # 范围: [0, 1]
 --- # sid.drive.player.analytics.request
 ...
 
-# 清空数据库中的所有数据
---- # sid.drive.db.clean
+# sid.drive.db 数据库操作
+---
+action: delete # 删除数据库数据
+--- # 响应
+status: ok
+
+---
+action: put # 批量插入数据
+table: tableName # 表名
+data: [*attachment] # 携带的数据[*attachment] or [*tag] 
 --- # 响应
 status: ok
 ...
