@@ -10,7 +10,7 @@ name: 文件名.mp3
 contentType: audio/mp3
 contentLength: 113585243
 url: 文件路径
-thumbnail: 缩略图id
+thumbnail: 缩略图url
 
 --- # 添加戓修改
 action: post
