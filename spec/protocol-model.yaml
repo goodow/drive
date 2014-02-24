@@ -29,6 +29,8 @@ status: ok
 contentType: audio/mp3 # 附件的MIME类型 http://en.wikipedia.org/wiki/MIME
 tags: [动物, 文学作品]
 query: 鸭子 # 模糊匹配搜索字符串
+from: 100 # 开始查询行
+size: 100 # 每次查询条数
 --- # 回应
 [*attachment]
 ...
