@@ -77,7 +77,7 @@ star:
   key: 2fs
   type: attachment # or tag
 --- &star # 回应
-key: a1tr
+key: a1tr # attachment id 或 标签
 type: attachment
 
 --- # 添加戓修改
@@ -93,6 +93,12 @@ stars:
     type: attachment
 --- # 响应
 status: ok
+...
+
+--- # sid.drive.star.search 查询收藏列表
+type: attachment # or tag
+--- # 响应
+[*attachment] # or [*tag] 
 ...
 
 --- # sid.drive.player.analytics 播放数据统计
