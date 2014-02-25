@@ -32,7 +32,8 @@ query: 鸭子 # 模糊匹配搜索字符串
 from: 100 # 开始查询行
 size: 100 # 每次查询条数
 --- # 回应
-[*attachment]
+attachments: [*attachment]
+count: 100 # 当前条件下的总数据量
 ...
 
 # sid.drive.tag
