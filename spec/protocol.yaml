@@ -59,6 +59,16 @@ Latitude: 2.147483647E9 # 电信 cdma base station latitude
 Longitude: 2.147483647E9 # 电信 cdma base station longitude
 ...
 
+--- # sid.drive.settings.location.baidu 请求设备的位置信息（百度地图)
+--- # 回应
+time: 2014-02-24 19:53:25 # 时间
+errorcode: 161 # 161: 表示网络定位结果  162~167: 服务端定位失败
+latitude: 39.990465 # 获取纬度
+longitude: 116.320921 # 获取经度
+radius: 44.94444274902344 # 精度 单位:米
+address: 北京市海淀区海淀大街3号-3288号 # 反地理编码
+...
+
 --- # sid.drive.settings.information 请求设备的信息
 --- # 回应
 hardware:
