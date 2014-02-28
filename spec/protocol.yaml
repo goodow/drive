@@ -86,15 +86,11 @@ action: post
 <<: *connectivity
 ...
 
-# 设置
---- # sid.drive.view.settings 设置界面
---- # sid.drive.view.wifi wifi设置
---- # sid.drive.view.resolution 分辨率输出
---- # sid.drive.view.screenOffset 屏幕偏移
---- # sid.drive.view.aboutUs 关于我们
+--- # sid.drive.view 界面跳转
+redirectTo: repository # [home,repository,favorite,settings,settings.wifi,settings.screenOffset,aboutUs]
 ...
 
---- # sid.drive.view.home 回到首页
+--- # sid.drive.view.refresh 界面刷新
 ...
 
 --- # sid.drive.view.scrawl 画笔
