@@ -98,6 +98,11 @@ annotation: true # 开始标注为: true 结束标注为: false
 clear: true # 清空标注
 ...
 
+--- # sid.drive.svg 可缩放矢量图形
+path: # http://www.w3.org/TR/SVG/
+  d: [[1,5], [2,20]]
+...
+
 --- # sid.drive.input 键盘鼠标信号模拟
 key: 20 # http://developer.android.com/reference/android/view/KeyEvent.html
 ...
