@@ -111,6 +111,16 @@ clear: true # 清空标注
 --- # sid.drive.svg 可缩放矢量图形
 path: # http://www.w3.org/TR/SVG/
   d: [[1,5], [2,20]]
+  fill: red # rgb(0,0,255)
+  stroke: blue
+  stroke-width: 3
+rect:
+  x: 1
+  y: 1
+  width: 398
+  height: 398
+  fill: none
+  stroke: blue
 ...
 
 --- # sid.drive.input 键盘鼠标信号模拟
