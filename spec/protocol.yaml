@@ -132,14 +132,17 @@ content: 请在7天内接通网络, 逾期设备将需要重新激活
 ...
 
 --- # sid.drive.auth 校验
+sid: sid
 imei: 866119010788223
-mobileCountryCode: 460
-mobileNetworkCode: 0
-locationAreaCode: 39910
-cellId: 4566000
-lastSuccessful: 1389168185304 # the number of milliseconds since January 1, 1970, 00:00:00 GMT
+errorcode: 161 # 161: 表示网络定位结果  162~167: 服务端定位失败
+latitude: 39.990465 # 获取纬度 返回坐标为: bd09ll类型坐标
+longitude: 116.320921 # 获取经度
+radius: 44.94444274902344 # 精度 单位:米
+address: 北京市海淀区海淀大街3号-3288号 # 反地理编码
+distance: 1000米 # 与上次校验时的距离
 --- # 回应
-status: ok
+status: ok # ok: 校验通过 reject: 拒绝通过 unlocked: 解除锁定
+content: 你的设备被锁定，请回到首次使用地点，或者联系服务电话: xxx-xxxx
 ...
 
 --- # sid.drive.print 打印文件
