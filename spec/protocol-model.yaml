@@ -65,6 +65,8 @@ status: ok
 
 --- # sid.drive.tag.children 查询同时属于多个标签的子标签
 tags: [父标签名]
+from: 100 # 开始查询行
+size: 100 # 每次查询条数
 --- # 响应
 [子标签名]
 ...
@@ -96,6 +98,8 @@ status: ok
 
 --- # sid.drive.star.search 查询收藏列表
 type: attachment # or tag
+from: 100 # 开始查询行
+size: 100 # 每次查询条数
 --- # 响应
 [*attachment] # or [*tag] 
 ...
