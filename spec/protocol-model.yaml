@@ -68,7 +68,8 @@ tags: [父标签名]
 from: 100 # 开始查询行
 size: 100 # 每次查询条数
 --- # 响应
-[子标签名]
+tags: [子标签名]
+count: 100 # 当前条件下的总数据量
 ...
 
 # sid.drive.star
@@ -101,7 +102,9 @@ type: attachment # or tag
 from: 100 # 开始查询行
 size: 100 # 每次查询条数
 --- # 响应
-[*attachment] # or [*tag] 
+attachments: [*attachment]
+tags:[*tag]
+count: 100 # 当前条件下的总数据量
 ...
 
 --- # sid.drive.player.analytics 播放数据统计
