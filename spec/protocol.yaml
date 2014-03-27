@@ -121,6 +121,18 @@ rect:
   height: 398
   fill: none
   stroke: blue
+  stroke-width: 1
+  transform: &transform # 形变
+    rotate: 50 # 单位度,z轴顺时针旋转50度,坐标原点为矩形中心点
+ellipse:
+  cx: 1
+  cy: 1
+  rx: 1
+  ry: 2
+  fill: red
+  stroke: blue
+  stroke-width: 3
+  transform: *transfrom
 ...
 
 --- # sid.drive.input 键盘鼠标信号模拟
