@@ -36,3 +36,7 @@ data: [*attachment] # 携带的数据[*attachment] or [*tag]
 --- # 响应
 status: ok
 ...
+
+# 请求地理位置校验
+--- # @sid.drive.auth.request
+...
