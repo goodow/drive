@@ -15,7 +15,5 @@
   
   <modules>
     <module>drive-server</module>
-    <module>drive-android</module>
-    <module>drive-web</module>
   </modules>
 </project>

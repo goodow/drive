@@ -3,11 +3,7 @@
 	url = https://github.com/goodow/drive-web.git
 [submodule "drive-server"]
 	path = drive-server
-	url = https://goodow.com/code/drive/drive-server.git
-	branch = .
-[submodule "drive-android"]
-	path = drive-android
-	url = https://goodow.com/code/drive/drive-android.git
+	url = https://github.com/goodow/drive-server.git
 	branch = .
 [submodule "GDDrive"]
 	path = GDDrive
