@@ -9,9 +9,8 @@ before_install:
   - tar -zxf android-sdk_r22.6.2-linux.tgz
   - export ANDROID_HOME=$PWD/android-sdk-linux
   - export PATH=${PATH}:${ANDROID_HOME}/tools:${ANDROID_HOME}/platform-tools
-  - echo $PATH
 # Install required Android components.
-  - android update sdk --filter platform-tools,android-19,extra-android-support,$ANDROID_SDKS --no-ui --force > /dev/null
+  - android update sdk --filter platform-tools,android-19 --no-ui --force > /dev/null
 
   
 before_script:
