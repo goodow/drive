@@ -9,9 +9,9 @@ before_install:
   - export ANDROID_HOME=$PWD/android-sdk-linux
   - export PATH=${PATH}:${ANDROID_HOME}/tools:${ANDROID_HOME}/platform-tools
   - echo $PATH
-  - mvn -v
+  - mvn -vgit 
 # Install required Android components.
-  - android update sdk --filter platform-tools,android-16,extra-android-support,$ANDROID_SDKS --no-ui --force
+  - android update sdk --filter platform-tools,android-16,extra-android-support,$ANDROID_SDKS --no-ui --force > /dev/null
 
   
 before_script:
@@ -20,8 +20,7 @@ before_script:
 script:
  # - mvn clean deploy -pl :drive-parent --settings target/travis/settings.xml
   - mvn clean install -pl :drive-parent --settings target/travis/settings.xml
-# Make sure the emulator has started before running tests
-  - ./wait_for_emulator
+  - mvn clean package
 
 env:
   global:
