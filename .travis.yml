@@ -15,7 +15,7 @@ before_install:
   
 before_script:
   - echo machine goodow.com login $GERRIT_USERNAME password $GERRIT_PASSWORD >> ~/.netrc
-  - git clone https://goodow.com/code/drive/drive-android
+  - git clone https://github.com/github/android.git
 script:
  # - mvn clean deploy -pl :drive-parent --settings target/travis/settings.xml
   - mvn clean install -pl :drive-parent --settings target/travis/settings.xml
