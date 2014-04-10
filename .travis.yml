@@ -1,11 +1,25 @@
 language: java
-before_install: wget -P target/travis https://raw.githubusercontent.com/goodow/maven/master/settings.xml
+jdk: oraclejdk7
+before_install: 
+  - wget -P target/travis https://raw.githubusercontent.com/goodow/maven/master/settings.xml
+# Install base Android SDK
+  - sudo apt-get update -qq
+  - if [ `uname -m` = x86_64 ]; then sudo apt-get install -qq --force-yes libgd2-xpm ia32-libs ia32-libs-multiarch > /dev/null; fi
+  - wget http://dl.google.com/android/android-sdk_r22.6.2-linux.tgz
+  - tar -zxf android-sdk_r22.6.2-linux.tgz
+  - export ANDROID_HOME=$PWD/android-sdk-linux
+  - export PATH=${PATH}:${ANDROID_HOME}/tools:${ANDROID_HOME}/platform-tools
+# Install required Android components.
+  - android update sdk  --filter platform-tools,sysimg-19 --no-ui --force > /dev/null
+
   
 before_script:
   - echo machine goodow.com login $GERRIT_USERNAME password $GERRIT_PASSWORD >> ~/.netrc
   - git clone https://goodow.com/code/drive/drive-android
 script:
-  - mvn clean deploy -pl :drive-parent --settings target/travis/settings.xml
+ # - mvn clean deploy -pl :drive-parent --settings target/travis/settings.xml
+  - mvn clean install -pl :drive-parent --settings target/travis/settings.xml
+
 
 env:
   global:
