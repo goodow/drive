@@ -10,7 +10,7 @@ before_install:
   - export ANDROID_HOME=$PWD/android-sdk-linux
   - export PATH=${PATH}:${ANDROID_HOME}/tools:${ANDROID_HOME}/platform-tools
 # Install required Android components.
-  - android update sdk  --filter platform-tools,sysimg-19,tools --no-ui --force > /dev/null
+  - android update sdk  --filter platform-tools,sysimg-19 --no-ui --force > /dev/null
 
   
 before_script:
