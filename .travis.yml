@@ -1,5 +1,13 @@
 language: java
-before_install: wget -P target/travis https://raw.githubusercontent.com/goodow/maven/master/settings.xml
+before_install: 
+  - wget -P target/travis https://raw.githubusercontent.com/goodow/maven/master/settings.xml
+  - sudo apt-get update -qq
+  - if [ `uname -m` = x86_64 ]; then sudo apt-get install -qq --force-yes libgd2-xpm ia32-libs ia32-libs-multiarch > /dev/null; fi
+  - wget https://dl.google.com/android/adt/22.6.2/adt-bundle-linux-x86_64-20140321.zip
+  - unzip -q adt-bundle-linux-x86_64-20140321.zip 
+  - mv adt-bundle-linux-x86_64-20140321 android-sdk-linux
+  - export ANDROID_HOME=$PWD/android-sdk-linux/sdk
+  - export PATH=${PATH}:${ANDROID_HOME}/tools:${ANDROID_HOME}/platform-tools
   
 before_script:
   - echo machine goodow.com login $GERRIT_USERNAME password $GERRIT_PASSWORD >> ~/.netrc
