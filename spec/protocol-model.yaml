@@ -72,6 +72,16 @@ tags: [子标签名]
 count: 100 # 当前条件下的总数据量
 ...
 
+--- # sid.drive.tag.children.attachments 查询同时属于多个标签的子标签及子标签对应的文件
+tags: [父标签名]
+--- # 响应
+tags:
+  - tag: 子标签名
+    id: 文件id
+    url: 文件路径
+count: 100 # 数据总量
+... 
+
 # sid.drive.star
 --- # 查询明细
 action: get
