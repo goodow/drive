@@ -145,6 +145,7 @@ content: 请在7天内接通网络, 逾期设备将需要重新激活
 
 --- # sid.drive.auth 校验
 sid: sid
+schoolName: 北京市幼儿园 # optional
 imei: 866119010788223
 errorcode: 161 # 161: 表示网络定位结果  162~167: 服务端定位失败
 latitude: 39.990465 # 获取纬度 返回坐标为: bd09ll类型坐标
