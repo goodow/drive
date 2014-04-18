@@ -153,8 +153,10 @@ radius: 44.94444274902344 # 精度 单位:米
 address: 北京市海淀区海淀大街3号-3288号 # 反地理编码
 distance: 1000米 # 与上次校验时的距离
 --- # 回应
-status: ok # ok: 校验通过 reject: 拒绝通过 unlocked: 解除锁定
-content: 你的设备被锁定，请回到首次使用地点，或者联系服务电话: xxx-xxxx
+status: 0 # [0校验通过 | 1不清空缓存重新发送验证信息(再次校验|注册) | 2清空缓存重新发送验证信息（两次发送的位置偏差超过阀值）| 3校验失败] 
+reset: 0 # [0不重置 | 1重置 default 0]
+lock: 0 # [0不锁定 | 1锁定 default 0]
+content: 你的设备被锁定，请回到首次使用地点，或者联系服务电话: xxx-xxxx # optional
 ...
 
 --- # sid.drive.print 打印文件
