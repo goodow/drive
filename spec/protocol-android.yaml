@@ -31,8 +31,13 @@ status: ok
 
 ---
 action: put # 批量插入数据
-table: tableName # 表名
-data: [*attachment] # 携带的数据[*attachment] or [*tag] 
+_id: o90ad
+title: 文件标题
+contentType: audio/mp3
+contentLength: 113585243  # optional
+url: 文件路径 # /mnt/sdcard/xxx.swf
+thumbnail: 缩略图url # /mnt/sdcard/xxx.png
+tags: [上学期, 中班, 活动名称] # 有序的
 --- # 响应
 status: ok
 ...
