@@ -42,6 +42,15 @@ tags: [上学期, 中班, 活动名称] # 有序的
 status: ok
 ...
 
+# sid.drive.db.start 数据库初始化控制
+---
+sid: [sids] # default sid
+num: 10 # 每批数据的数量 # optional default 100
+sdcard: [/mnt/sdcard] # sdcard的路径 有序 optional default /mnt/sdcard
+--- # 响应
+status: ok # 收到该条指令
+...
+
 # 请求地理位置校验
 --- # @sid.drive.auth.request
 ...
