@@ -1,4 +1,9 @@
-# sid.drive.attachment
+--- # drive.sid
+path: local sub-channel address
+msg: {}
+...
+
+# @drive.attachment
 --- # 查询详情
 action: get
 id: o90ad
@@ -24,7 +29,7 @@ ids: [o90ad] # 根据id列表进行删除
 status: ok
 ...
 
---- # sid.drive.attachment.search 附件搜索
+--- # @drive.attachment.search 附件搜索
 contentType: audio/mp3 # 附件的MIME类型 http://en.wikipedia.org/wiki/MIME
 tags: [动物, 文学作品]
 query: 鸭子 # 模糊匹配搜索字符串
@@ -35,7 +40,7 @@ attachments: [*attachment]
 count: 100 # 当前条件下的总数据量
 ...
 
-# sid.drive.tag
+# @drive.tag
 --- # 查询标签明细
 action: get
 tag: 
@@ -63,7 +68,7 @@ tags:
 status: ok
 ...
 
---- # sid.drive.tag.children 查询同时属于多个标签的子标签
+--- # @drive.tag.children 查询同时属于多个标签的子标签
 tags: [父标签名]
 from: 100 # 开始查询行
 size: 100 # 每次查询条数
@@ -72,7 +77,7 @@ tags: [子标签名]
 count: 100 # 当前条件下的总数据量
 ...
 
---- # sid.drive.tag.children.attachments 查询同时属于多个标签的子标签及子标签对应的文件
+--- # @drive.tag.children.attachments 查询同时属于多个标签的子标签及子标签对应的文件
 tags: [父标签名]
 --- # 响应
 tags:
@@ -82,7 +87,7 @@ tags:
 count: 100 # 数据总量
 ... 
 
-# sid.drive.star
+# @drive.star
 --- # 查询明细
 action: get
 star: 
@@ -107,7 +112,7 @@ stars:
 status: ok
 ...
 
---- # sid.drive.star.search 查询收藏列表
+--- # @drive.star.search 查询收藏列表
 type: attachment # or tag
 from: 100 # 开始查询行
 size: 100 # 每次查询条数
@@ -117,7 +122,7 @@ tags:[*tag]
 count: 100 # 当前条件下的总数据量
 ...
 
---- # sid.drive.player.analytics 播放数据统计
+--- # @drive.player.analytics 播放数据统计
 sid: sid # 设备的ID
 analytics:
   - attachment: 2fs
@@ -128,11 +133,28 @@ analytics:
 status: ok
 ...
 
---- # sid.drive.systime.analytics # 开机时间和持续时间
+--- # @drive.systime.analytics # 开机时间和持续时间
 sid: sid
 timestamp:
   - openTime: 1389168185304 # 开始时间
     lastTime: 1389168185304 # 持续时间
 --- # 响应
 status: ok
+...
+
+--- # @drive.auth 校验
+sid: sid
+schoolName: 北京市幼儿园 # optional
+imei: 866119010788223
+errorcode: 161 # 161: 表示网络定位结果  162~167: 服务端定位失败
+latitude: 39.990465 # 获取纬度 返回坐标为: bd09ll类型坐标
+longitude: 116.320921 # 获取经度
+radius: 44.94444274902344 # 精度 单位:米
+address: 北京市海淀区海淀大街3号-3288号 # 反地理编码
+distance: 1000米 # 与上次校验时的距离
+--- # 回应
+status: 0 # [0校验通过 | 1不清空缓存重新发送验证信息(再次校验|注册) | 2清空缓存重新发送验证信息（两次发送的位置偏差超过阀值）] 
+reset: 0 # [0不重置 | 1重置 default 0]
+lock: 0 # [0不锁定 | 1锁定 default 0]
+content: 你的设备被锁定，请回到首次使用地点，或者联系服务电话: xxx-xxxx # optional
 ...

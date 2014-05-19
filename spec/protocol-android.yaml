@@ -1,29 +1,29 @@
 # 播放PDF
---- # sid.drive.player.pdf.jz
+--- # @drive.player.pdf.jz
 path: sample.pdf
---- # sid.drive.player.pdf.mu
+--- # @drive.player.pdf.mu
 path: sample.pdf
 ...
 
 # 播放flash
---- # sid.drive.player.swf.button
+--- # @drive.player.swf.button
 path: sample.swf
---- # sid.drive.player.swf.webview
+--- # @drive.player.swf.webview
 path: sample.swf
 ...
 
 # 亮度调节
---- # sid.drive.settings.brightness.view
+--- # @drive.settings.brightness.view
 brightness: 0.3 # 范围: [0, 1] 0表示全黑，1表示全亮
---- # sid.drive.settings.brightness.light
+--- # @drive.settings.brightness.light
 brightness: 0.3 # 范围: [0, 1] 
 ...
 
 # 请求播放数据统计
---- # sid.drive.player.analytics.request
+--- # @drive.player.analytics.request
 ...
 
-# sid.drive.db 数据库操作
+# @drive.db 数据库操作
 ---
 action: delete # 删除数据库数据
 --- # 响应
@@ -43,7 +43,7 @@ datas:
 status: ok
 ...
 
-# sid.drive.db.start 数据库初始化控制
+# @drive.db.start 数据库初始化控制
 ---
 sid: [sids] # default sid
 num: 10 # 每批数据的数量 # optional default 100
@@ -53,11 +53,11 @@ status: ok # 收到该条指令
 ...
 
 # 请求地理位置校验
---- # @sid.drive.auth.request
+--- # @drive.auth.request
 ...
 
 # 提示信息
---- # @sid.drive.view.prompt
+--- # @drive.view.prompt
 status: true # true 提示信息打开 false 提示信息关闭
 content: 试用中 # 提示的内容
 ...

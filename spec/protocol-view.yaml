@@ -1,4 +1,4 @@
---- # sid.drive.player 播放器
+--- # @drive.player 播放器
 path: sample.pdf # 根据后缀选择对应的播放器
 play: 1 # 0表示停止, 1表示播放, 2表示暂停, 3表示重播 
 progress: 0.2 # 设置播放的进度  范围：[0.0,1.0]
@@ -13,14 +13,14 @@ image:
   y: 0.5 # 范围: [0,1]  (x,y)是图片上的一点, 将指定的点移动到屏幕中央
 ...
 
---- # sid.drive.control 通用控制
+--- # @drive.control 通用控制
 return: true # 返回
 shutdown: 0 # 0表示关机 1表示重启
 brightness: 0.0 # 屏幕亮度 [0,1] 0表示黑屏
 page: *page # 分页
 ...
 
-# sid.drive.audio 音量
+# @drive.audio 音量
 --- # 请求信息
 action: get
 --- &audioInfo # 返回结果
@@ -33,18 +33,18 @@ action: post
 range: -0.3 # 音量的步进增幅, 该值为最大音量的百分比 [-1.0,1.0]
 ...
 
---- # sid.drive.topic 主题界面呈现
+--- # @drive.topic 主题界面呈现
 action: post
 tags: [小班, 上学期]
 ...
 
---- # sid.drive.activity 活动界面呈现
+--- # @drive.activity 活动界面呈现
 action: post
 tags: [小班, 上学期, 健康]
 title: 活动标题
 ...
 
---- # sid.drive.settings.location 请求设备的位置信息
+--- # @drive.settings.location 请求设备的位置信息
 --- # 回应
 networkType: wifi # 网络类型：wifi或者mobile
 mobileCountryCode: 460
@@ -59,7 +59,7 @@ Latitude: 2.147483647E9 # 电信 cdma base station latitude
 Longitude: 2.147483647E9 # 电信 cdma base station longitude
 ...
 
---- # sid.drive.settings.location.baidu 请求设备的位置信息（百度地图)
+--- # @drive.settings.location.baidu 请求设备的位置信息（百度地图)
 --- # 回应
 time: 2014-02-24 19:53:25 # 时间
 errorcode: 161 # 161: 表示网络定位结果  162~167: 服务端定位失败
@@ -69,7 +69,7 @@ radius: 44.94444274902344 # 精度 单位:米
 address: 北京市海淀区海淀大街3号-3288号 # 反地理编码
 ...
 
---- # sid.drive.settings.information 请求设备的信息
+--- # @drive.settings.information 请求设备的信息
 --- # 回应
 hardware:
   MAC: 80:22:75:3c:0a:25 # MAC地址 
@@ -84,7 +84,7 @@ software:
   SDK: 15 # SDK的版本
 ...
 
-# sid.drive.connectivity 网络
+# @drive.connectivity 网络
 --- # 获得网络信息
 action: get
 --- &connectivity # 响应 http://docs.phonegap.com/en/3.3.0/cordova_connection_connection.md.html#Connection
@@ -96,19 +96,19 @@ action: post
 <<: *connectivity
 ...
 
---- # sid.drive.view 界面跳转
+--- # @drive.view 界面跳转
 redirectTo: repository # [home,repository,favorite,settings,settings.wifi,settings.screenOffset,aboutUs]
 ...
 
---- # sid.drive.view.refresh 界面刷新
+--- # @drive.view.refresh 界面刷新
 ...
 
---- # sid.drive.view.scrawl 画笔
+--- # @drive.view.scrawl 画笔
 annotation: true # 开始标注为: true 结束标注为: false
 clear: true # 清空标注
 ...
 
---- # sid.drive.svg 可缩放矢量图形
+--- # @drive.svg 可缩放矢量图形
 path: # http://www.w3.org/TR/SVG/
   d: [[1,5], [2,20]]
   fill: red # rgb(0,0,255)
@@ -135,36 +135,19 @@ ellipse:
   transform: *transfrom
 ...
 
---- # sid.drive.input 键盘鼠标信号模拟
+--- # @drive.input 键盘鼠标信号模拟
 key: 20 # http://developer.android.com/reference/android/view/KeyEvent.html
 ...
 
---- # sid.drive.notification 信息通知
+--- # @drive.notification 信息通知
 content: 请在7天内接通网络, 逾期设备将需要重新激活
 ...
 
---- # sid.drive.auth 校验
-sid: sid
-schoolName: 北京市幼儿园 # optional
-imei: 866119010788223
-errorcode: 161 # 161: 表示网络定位结果  162~167: 服务端定位失败
-latitude: 39.990465 # 获取纬度 返回坐标为: bd09ll类型坐标
-longitude: 116.320921 # 获取经度
-radius: 44.94444274902344 # 精度 单位:米
-address: 北京市海淀区海淀大街3号-3288号 # 反地理编码
-distance: 1000米 # 与上次校验时的距离
---- # 回应
-status: 0 # [0校验通过 | 1不清空缓存重新发送验证信息(再次校验|注册) | 2清空缓存重新发送验证信息（两次发送的位置偏差超过阀值）] 
-reset: 0 # [0不重置 | 1重置 default 0]
-lock: 0 # [0不锁定 | 1锁定 default 0]
-content: 你的设备被锁定，请回到首次使用地点，或者联系服务电话: xxx-xxxx # optional
-...
-
---- # sid.drive.print 打印文件
+--- # @drive.print 打印文件
 path: xxx.jpg # 文件路径
 ...
 
---- # sid.drive.file 请求一个目录下的所有文件和子目录
+--- # @drive.file 请求一个目录下的所有文件和子目录
 path: goodow/drive/和谐/小/上/
 --- # 返回文件及子目录列表
 folders: [科学, 语言]
