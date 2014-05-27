@@ -128,7 +128,7 @@ analytics:
   - attachment: 2fs
     timestamp:
       - openTime: 1389168185304 # 开始时间
-        lastTime: 1389168185304 # 持续时间
+        duration: 1389168185304 # 持续时间
 --- # 响应
 status: ok
 ...
@@ -137,7 +137,10 @@ status: ok
 sid: sid
 timestamp:
   - openTime: 1389168185304 # 开始时间
-    lastTime: 1389168185304 # 持续时间
+    duration: 1389168185304 # 持续时间
+    address: 北京市海淀区海淀大街3号-3288号
+    coordinates: [-71.34, 41.12] # [经度, 纬度]
+    radius: 44.94444274902344 # 精度, 单位米
 --- # 响应
 status: ok
 ...
@@ -145,7 +148,7 @@ status: ok
 --- # @drive.auth 校验
 sid: sid
 schoolName: 北京市幼儿园 # optional
-imei: 866119010788223
+code: 1234556 # optional
 errorcode: 161 # 161: 表示网络定位结果  162~167: 服务端定位失败
 latitude: 39.990465 # 获取纬度 返回坐标为: bd09ll类型坐标
 longitude: 116.320921 # 获取经度
@@ -154,7 +157,6 @@ address: 北京市海淀区海淀大街3号-3288号 # 反地理编码
 distance: 1000米 # 与上次校验时的距离
 --- # 回应
 status: 0 # [0校验通过 | 1不清空缓存重新发送验证信息(再次校验|注册) | 2清空缓存重新发送验证信息（两次发送的位置偏差超过阀值）] 
-reset: 0 # [0不重置 | 1重置 default 0]
-lock: 0 # [0不锁定 | 1锁定 default 0]
-content: 你的设备被锁定，请回到首次使用地点，或者联系服务电话: xxx-xxxx # optional
+reset: false # [false 不重置 | true 重置 default false]
+lock: false # [false 不锁定 | true 锁定 default false]
 ...
