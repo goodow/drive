@@ -61,3 +61,7 @@ status: ok # 收到该条指令
 status: true # true 提示信息打开 false 提示信息关闭
 content: 试用中 # 提示的内容
 ...
+
+# 通知JavaWebSocket重连
+--- # @Bus_Reconnet
+...

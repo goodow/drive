@@ -15,7 +15,7 @@ image:
 
 --- # @drive.control 通用控制
 return: true # 返回
-shutdown: 0 # 0表示关机 1表示重启
+shutdown: 0 # 0表示关机 1表示重启 2表示待机
 brightness: 0.0 # 屏幕亮度 [0,1] 0表示黑屏
 page: *page # 分页
 ...
