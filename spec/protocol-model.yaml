@@ -149,6 +149,7 @@ status: ok
 sid: sid
 schoolName: 北京市幼儿园 # optional
 code: 1234556 # optional
+contacts: 010-88888 # optional 联系方式
 errorcode: 161 # 161: 表示网络定位结果  162~167: 服务端定位失败
 latitude: 39.990465 # 获取纬度 返回坐标为: bd09ll类型坐标
 longitude: 116.320921 # 获取经度
