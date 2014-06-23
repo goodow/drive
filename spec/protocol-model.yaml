@@ -1,4 +1,4 @@
---- # drive.sid
+--- # drive/sid
 path: local sub-channel address
 msg: {}
 ...
@@ -122,7 +122,7 @@ tags:[*tag]
 count: 100 # 当前条件下的总数据量
 ...
 
---- # @drive.player.analytics 播放数据统计
+--- # drive/player/analytics 播放数据统计
 sid: sid # 设备的ID
 analytics:
   - attachment: 2fs
@@ -133,7 +133,7 @@ analytics:
 status: ok
 ...
 
---- # @drive.systime.analytics # 开机时间和持续时间
+--- # drive/systime/analytics # 开机时间和持续时间
 sid: sid
 timestamp:
   - openTime: 1389168185304 # 开始时间
@@ -145,7 +145,7 @@ timestamp:
 status: ok
 ...
 
---- # @drive.auth 校验
+--- # drive/auth 校验
 sid: sid
 schoolName: 北京市幼儿园 # optional
 code: 1234556 # optional
