@@ -161,3 +161,10 @@ status: 0 # [0校验通过 | 1不清空缓存重新发送验证信息(再次校�
 reset: false # [false 不重置 | true 重置 default false]
 lock: false # [false 不锁定 | true 锁定 default false]
 ...
+
+--- # drive_android/config　android端的时间配置
+time:
+  authPeriodicTime: 1000 # 定期校验时间，单位ms
+  limitTotalTime: 1000 # 限制使用时间，单位ms
+  trailTime: 1000 # 试用时间，单位ms
+...
