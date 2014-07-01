@@ -108,33 +108,6 @@ annotation: true # 开始标注为: true 结束标注为: false
 clear: true # 清空标注
 ...
 
---- # @drive.svg 可缩放矢量图形
-path: # http://www.w3.org/TR/SVG/
-  d: [[1,5], [2,20]]
-  fill: red # rgb(0,0,255)
-  stroke: blue
-  stroke-width: 3
-rect:
-  x: 1
-  y: 1
-  width: 398
-  height: 398
-  fill: none
-  stroke: blue
-  stroke-width: 1
-  transform: &transform # 形变
-    rotate: 50 # 单位度,z轴顺时针旋转50度,坐标原点为矩形中心点
-ellipse:
-  cx: 1
-  cy: 1
-  rx: 1
-  ry: 2
-  fill: red
-  stroke: blue
-  stroke-width: 3
-  transform: *transfrom
-...
-
 --- # @drive.input 键盘鼠标信号模拟
 key: 20 # http://developer.android.com/reference/android/view/KeyEvent.html
 ...
