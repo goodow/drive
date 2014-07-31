@@ -1,0 +1,66 @@
+--- # pagination 双字段向后翻页 1.第一个字段是业务字段，2.第二个字段是唯一标识字段
+query:
+  bool:
+    should:
+      - bool:
+          must:
+            - term:
+                _timestamp: 2014-11-15T14:11:11
+            - range:
+                _uid: # ["gt","lt"] sort中升序排列gt 降序排列lt
+                  lt: attachmentActivity#D19cnQA2Q-OHkspewvHpEg
+      - range:
+          _timestamp: # ["gt","lt"] sort中此字段升序排列gt 降序列排序lt
+            lt: 2014-11-15T14:12:12
+    minimum_should_match: 1
+size: 51
+sort: # 需要排序的字段
+  - _timestamp: desc # ["desc","asc"]
+  - _uid: desc # ["desc","asc"]
+...
+
+--- # 双字段向前翻页 则所有的条件都是反的(sort字段及翻页条件,对应上述翻页条件) 取出来之后把结果反转一下 就是上一页(如果不反转,导致再翻上一页就会有问题)
+query:
+  bool:
+    should:
+      - bool:
+          must:
+            - term:
+                _timestamp: 2014-11-15T14:11:11
+            - range:
+                _uid: # ["gt","lt"] sort中升序排列 gt 降序排列lt
+                  gt: attachmentActivity#D19cnQA2Q-OHkspewvHpEg
+      - range:
+          _timestamp: # ["gt","lt"] sort中升序排列gt 降序排列lt
+            gt: 2014-11-15T14:12:12
+    minimum_should_match: 1
+size: 51
+sort: # 需要排序的字段
+  - _timestamp
+  - _uid
+...
+
+--- # 单字段分页 此字段必须是唯一字段
+query:
+  bool:
+    must:
+      range:
+        _uid: # ["gt","lt"] sort中升序排列 gt 降序排列lt
+          gt: 2014-11-15T14:11:11
+size: 51
+sort: # 需要排序的字段
+  - _uid
+...
+
+--- # 单字段向上翻页 反转条件 得到结果之后倒置一下
+query:
+  bool:
+    must:
+      range:
+        _uid: # ["gt","lt"] sort中升序排列 gt 降序排列lt
+          lt: 2014-11-15T14:11:11
+size: 51
+sort: # 需要排序的字段
+  - _uid: desc # ["desc","asc"]
+...
+
